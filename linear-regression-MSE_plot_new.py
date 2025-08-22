@@ -109,7 +109,7 @@ def mse_in_various_deg (polynomial_degrees,train_errors_mse,test_errors_mse):
 np.random.seed(1836)  # to make this code example reproducible
 m = 300  # number of instances
 X = 3 * np.random.rand(m, 1)  # column vector for independent variable
-y = 3 + np.random.uniform(0, 10,1) * X + np.random.normal(0,10,1) * X**2 - np.random.uniform(0,10,1) * X**3 + np.random.normal(0,10,1) * np.random.randn(m, 1) # dependent variable with cubic relationship and noise
+y = 3 + np.random.uniform(0, 10,1) * X + np.random.exponential(10,1) * X**2 - np.random.uniform(0,10,1) * X**3 +np.random.uniform(0,30,1)*X**4+ np.random.normal(0,10,1) * np.random.randn(m, 1) # dependent variable with cubic relationship and noise
 
 # --- Split Data into Training and Testing Sets ---
 # We'll use 80% of the data for training and 20% for testing.
@@ -120,7 +120,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 theta_best_linear=parameter_linear_regression(X_train,y_train)
 theta_best_cubic=parameter_cubic_regression(X_train,y_train)
 
-polynomial_degrees=range(1,31)
+polynomial_degrees=range(1,15)
 train_errors_mse = []
 test_errors_mse = []
 train_errors_mse = []
@@ -149,7 +149,7 @@ for degree in polynomial_degrees:
 #print(test_errors_mse)
 #comperison_linear_and_cubic(X,y,theta_best_linear,theta_best_cubic)
 mse_in_various_deg (polynomial_degrees,train_errors_mse,test_errors_mse)
-mse_in_various_deg (polynomial_degrees,np.log(train_errors_mse),np.log(test_errors_mse))
+#mse_in_various_deg (polynomial_degrees,np.log(train_errors_mse),np.log(test_errors_mse))
 
 
 		

@@ -19,6 +19,7 @@ def add_dummy_feature(X):
 np.random.seed(1836)  # to make this code example reproducible
 m = 30  # number of instances
 X = 3 * np.random.rand(m, 1)  # column vector for independent variable
+#print(X)
 y = 3 + 0.5 * X + 1.5 * X**2 - 0.5 * X**3 + 0.3 * np.random.randn(m, 1) # dependent variable with cubic relationship and noise
 
 # --- Split Data into Training and Testing Sets ---
